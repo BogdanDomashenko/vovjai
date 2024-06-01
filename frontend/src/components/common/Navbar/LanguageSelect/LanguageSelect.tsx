@@ -17,22 +17,24 @@ export const LanguageSelect: FC = () => {
       <Button width='md' className='uppercase' onClick={() => setIsListOpen(!isListOpen)}>
         {language}
       </Button>
-      <div className='absolute left-0 top-12 z-10 w-full' ref={listRef}>
-        {isListOpen &&
-          data
-            ?.filter((item) => item.code !== language)
-            .map((item) => (
-              <Button
-                className='w-full uppercase'
-                onClick={() => {
-                  setLanguage(item.code);
-                  setIsListOpen(false);
-                }}
-              >
-                {item.code}
-              </Button>
-            ))}
-      </div>
+      {isListOpen ? (
+        <div className='absolute left-0 top-12 z-10 w-full' ref={listRef}>
+          {isListOpen &&
+            data
+              ?.filter((item) => item.code !== language)
+              .map((item) => (
+                <Button
+                  className='w-full uppercase'
+                  onClick={() => {
+                    setLanguage(item.code);
+                    setIsListOpen(false);
+                  }}
+                >
+                  {item.code}
+                </Button>
+              ))}
+        </div>
+      ) : null}
     </div>
   );
 };

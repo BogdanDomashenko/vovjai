@@ -53,6 +53,37 @@
         },
         "text": {
             "type": "text"
+        },
+        "pageImage": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "pageBg": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "workSubcategories": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::work-subcategory.work-subcategory",
+            "mappedBy": "workCategory"
+        },
+        "pageDescription": {
+            "type": "text"
         }
     }
 }

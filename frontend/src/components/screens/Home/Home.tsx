@@ -17,6 +17,7 @@ import youKnowSmall from '../../../assets/images/you-know-small.png';
 import logo from '../../../assets/images/logo.svg';
 import heartImg from '../../../assets/icons/heart.svg';
 import rainbowLineImg from '../../../assets/images/rainbow-line.png';
+import { Link } from 'react-router-dom';
 
 export const Home: FC = () => {
   const { localize } = useLocalization();
@@ -43,13 +44,14 @@ export const Home: FC = () => {
       <div className='container flex max-w-6xl flex-col items-center bg-gradient-to-r from-dark-700 to-dark-800 p-0 pb-10'>
         <div className='mt-10 flex flex-col gap-4'>
           {data?.map((category) => (
-            <CategoryBanner
-              key={category.id}
-              title={category.name}
-              text={category.text}
-              instruments={category.instruments}
-              image={getUploadUrl(category.image.url)}
-            />
+            <Link key={category.id} to={`/works/${category.id}`}>
+              <CategoryBanner
+                title={category.name}
+                text={category.text}
+                instruments={category.instruments}
+                image={getUploadUrl(category.image.url)}
+              />
+            </Link>
           ))}
         </div>
       </div>
@@ -57,10 +59,12 @@ export const Home: FC = () => {
       <ContactMe />
       <Footer title={localize('powered_by_sorryimbroke')} bgImage={homeFooterBg}>
         <div className='flex flex-col items-center'>
-          <Button className='flex items-center font-bold'>
-            <img src={instagramIcon} alt='instagram' className='h-7 w-7' />
-            @sorryiambroke
-          </Button>
+          <a href='https://www.instagram.com/sorryiambroke/'>
+            <Button className='flex items-center font-bold'>
+              <img src={instagramIcon} alt='instagram' className='h-7 w-7' />
+              @sorryiambroke
+            </Button>
+          </a>
           <div className='mt-16 flex gap-1'>
             <img src={smileIcon} className='w-32 md:w-20' />
             <img src={sadSmileIcon} className='w-32 md:w-20' />

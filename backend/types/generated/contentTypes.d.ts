@@ -895,6 +895,11 @@ export interface ApiWorkWork extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    workSubcategory: Attribute.Relation<
+      'api::work.work',
+      'manyToOne',
+      'api::work-subcategory.work-subcategory'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::work.work', 'oneToOne', 'admin::user'> &
@@ -942,6 +947,14 @@ export interface ApiWorkCategoryWorkCategory extends Schema.CollectionType {
     >;
     type: Attribute.Enumeration<['main', 'other']>;
     text: Attribute.Text;
+    pageImage: Attribute.Media;
+    pageBg: Attribute.Media;
+    workSubcategories: Attribute.Relation<
+      'api::work-category.work-category',
+      'oneToMany',
+      'api::work-subcategory.work-subcategory'
+    >;
+    pageDescription: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -957,6 +970,62 @@ export interface ApiWorkCategoryWorkCategory extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+  };
+}
+
+export interface ApiWorkSubcategoryWorkSubcategory
+  extends Schema.CollectionType {
+  collectionName: 'work_subcategories';
+  info: {
+    singularName: 'work-subcategory';
+    pluralName: 'work-subcategories';
+    displayName: 'WorkSubcategory';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    workCategory: Attribute.Relation<
+      'api::work-subcategory.work-subcategory',
+      'manyToOne',
+      'api::work-category.work-category'
+    >;
+    works: Attribute.Relation<
+      'api::work-subcategory.work-subcategory',
+      'oneToMany',
+      'api::work.work'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::work-subcategory.work-subcategory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::work-subcategory.work-subcategory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::work-subcategory.work-subcategory',
+      'oneToMany',
+      'api::work-subcategory.work-subcategory'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -981,6 +1050,7 @@ declare module '@strapi/types' {
       'api::translation.translation': ApiTranslationTranslation;
       'api::work.work': ApiWorkWork;
       'api::work-category.work-category': ApiWorkCategoryWorkCategory;
+      'api::work-subcategory.work-subcategory': ApiWorkSubcategoryWorkSubcategory;
     }
   }
 }
