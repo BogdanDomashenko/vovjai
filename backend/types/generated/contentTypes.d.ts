@@ -955,6 +955,7 @@ export interface ApiWorkCategoryWorkCategory extends Schema.CollectionType {
       'api::work-subcategory.work-subcategory'
     >;
     pageDescription: Attribute.Text;
+    footerBg: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -980,6 +981,7 @@ export interface ApiWorkSubcategoryWorkSubcategory
     singularName: 'work-subcategory';
     pluralName: 'work-subcategories';
     displayName: 'WorkSubcategory';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1006,6 +1008,12 @@ export interface ApiWorkSubcategoryWorkSubcategory
       'oneToMany',
       'api::work.work'
     >;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

@@ -4,6 +4,7 @@ export interface WorkSubcategory {
   name: string;
   workCategory: ResponseRecord<WorkCategory>;
   works: ResponseRecord<Work>[];
+  description: string;
 }
 
 export interface Work {
@@ -11,7 +12,9 @@ export interface Work {
   shortDescription: string;
   workCategory: ResponseRecord<WorkCategory>;
   previewImage: ImageDetails;
+  images: ImageDetails[] | null;
   worksSubcategory: ResponseRecord<WorkSubcategory>;
+  longDescription: string;
 }
 
 export type WorkCategoryInstrument =
@@ -29,4 +32,5 @@ export interface WorkCategory {
   instruments: WorkCategoryInstrument[];
   text: string;
   pageDescription: string;
+  footerBg: ImageDetails;
 }

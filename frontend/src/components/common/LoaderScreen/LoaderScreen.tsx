@@ -3,13 +3,13 @@ import { MutatingDots } from 'react-loader-spinner';
 
 export const LoaderScreen: FC = () => {
   return (
-    <div className='relative h-[100svh] w-full'>
+    <div className='relative h-[100svh] w-full bg-black'>
       <MutatingDots
         visible={true}
         height='100'
         width='100'
-        color='#701117'
-        secondaryColor='#701117'
+        color='#FFFFFF'
+        secondaryColor='#FFFFFF'
         radius='12.5'
         ariaLabel='mutating-dots-loading'
         wrapperStyle={{}}

@@ -4,7 +4,8 @@
     "info": {
         "singularName": "work-subcategory",
         "pluralName": "work-subcategories",
-        "displayName": "WorkSubcategory"
+        "displayName": "WorkSubcategory",
+        "description": ""
     },
     "options": {
         "draftAndPublish": false
@@ -34,6 +35,14 @@
             "relation": "oneToMany",
             "target": "api::work.work",
             "mappedBy": "workSubcategory"
+        },
+        "description": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "text"
         }
     }
 }
