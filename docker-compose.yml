@@ -34,7 +34,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=JHwqiu12812QOQmo09wqq
       - POSTGRES_USER=dbuser
-      - POSTGRES_DB=publishing
+      - POSTGRES_DB=vovjai
   ngnix:
     build: ./nginx/
     depends_on:
