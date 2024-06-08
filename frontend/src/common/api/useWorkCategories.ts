@@ -11,6 +11,7 @@ export const useWorkCategories = (payload?: { type?: 'main' | 'other' }) => {
         params: {
           'populate[0]': 'image',
           ...(payload?.type && { 'filters[type]': payload.type }),
+          'sort[createdAt]': 'asc',
         },
       });
       return res.data.data;

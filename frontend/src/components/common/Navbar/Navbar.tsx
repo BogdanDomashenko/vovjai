@@ -12,7 +12,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   return (
     <nav
       className={cx(
-        'fixed flex w-full items-center justify-between bg-black/[90%] px-5 py-3 text-md',
+        'fixed z-10 flex w-full items-center justify-between bg-black/[90%] px-5 py-3 text-md',
         className,
       )}
     >
