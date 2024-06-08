@@ -55,7 +55,7 @@ export const Work: FC<WorkProps> = ({ data }) => {
           )}
           <div className='flex justify-between gap-4 py-2'>
             <div className='flex flex-wrap gap-2'>
-              {data.images?.map((image, index) => (
+              {data.images?.map((_, index) => (
                 <Button
                   key={index}
                   className={cx('h-12 w-12', {

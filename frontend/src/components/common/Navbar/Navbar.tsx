@@ -3,7 +3,6 @@ import logo from '../../../assets/images/logo.svg';
 import { LanguageSelect } from './LanguageSelect';
 import { cx } from 'class-variance-authority';
 import vj2logo from '../../../assets/images/VJlogo2.svg';
-import { Link } from 'react-router-dom';
 
 export interface NavbarProps {
   className?: string;
