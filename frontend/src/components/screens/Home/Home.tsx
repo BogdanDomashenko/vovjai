@@ -24,7 +24,7 @@ export const Home: FC = () => {
   const { data } = useWorkCategories({ type: 'main' });
 
   return (
-    <div className={`bg-[url('src/assets/images/bg.jpg')]`}>
+    <div className={`bg-[url('/bg.jpg')]`}>
       <div className='container flex max-w-6xl flex-col items-center bg-gradient-to-r from-dark-700 to-dark-800 px-0 pb-10 pt-[60px]'>
         <div className='bg-black md:p-4'>
           <img src={vovjaiPortfolioMasterImg} alt='vovjai-portfilio-master' className='md:border' />
