@@ -1,0 +1,48 @@
+version: "3.8"
+services:
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    restart: always #change if you don't want your container restarting
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always #change if you don't want your container restarting
+    volumes:
+      - ./backend/public/uploads:/app/backend/public/uploads
+      - ./types:/app/backend/types
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 1337:1337
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=JHwqiu12812QOQmo09wqq
+      - POSTGRES_USER=dbuser
+      - POSTGRES_DB=publishing
+  ngnix:
+    build: ./nginx/
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - 3001:3001
+      - 80:80
+    # mount ssl certificates
+    volumes:
+      - ./nginx/certs:/etc/nginx/certs
