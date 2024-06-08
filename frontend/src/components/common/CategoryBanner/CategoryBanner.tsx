@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
 import { WorkCategoryInstrument } from '../../../common/types/work.types';
 import { Separator } from '../Separator';
-import classNames from 'classnames';
 import { WORK_CATEGORY_INSTUMENT_ICON } from '../../../common/constants';
 import { useBreakpoint } from '../../../common/hooks/useBreackpoint';
+import { cx } from 'class-variance-authority';
 
 export interface CategoryBannerProps {
   title: string;
@@ -19,7 +19,7 @@ export const CategoryBanner: FC<CategoryBannerProps> = ({ title, text, instrumen
   return (
     <div className='cursor-pointer bg-black p-sm'>
       <div
-        className={classNames(
+        className={cx(
           'flex flex-col items-center justify-between bg-cover bg-no-repeat p-1 md:flex-row',
           {
             'ring-1 ring-white': isHovered,
@@ -57,7 +57,7 @@ export const CategoryBanner: FC<CategoryBannerProps> = ({ title, text, instrumen
           )}
         </div>
         <div
-          className={classNames(
+          className={cx(
             'mt-4 min-h-[80px] pr-4 text-center leading-none text-white md:mt-0 md:w-4/12 md:text-right',
             {
               opacity: isHovered ? 1 : 0,
