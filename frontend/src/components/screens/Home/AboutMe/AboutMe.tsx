@@ -15,7 +15,7 @@ export const AboutMe: FC = () => {
 
   return (
     <>
-      <Container className='pb-12'>
+      <Container className='pb-12' id='about_me'>
         <Banner title={localize('about_me')} text={localize('about_me_subtitle')} />
       </Container>
       <Container className='bg-black px-0'>

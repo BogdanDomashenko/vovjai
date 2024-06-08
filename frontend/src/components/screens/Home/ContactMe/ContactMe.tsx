@@ -44,7 +44,7 @@ export const ContactMe: FC = () => {
   const { localize } = useLocalization();
 
   return (
-    <div>
+    <div id='contact_me'>
       <Container className='pb-10'>
         <div className='flex justify-center pt-8'>
           <Separator direction='horizontal' />

@@ -33,12 +33,16 @@ export const Home: FC = () => {
       <div className='container flex max-w-6xl flex-col items-center bg-gradient-to-r from-dark-700 to-dark-800'>
         <Banner title={localize('promo_title')} text={localize('promo_text')} />
         <div className='mt-5 flex flex-wrap justify-center gap-4 md:flex-nowrap'>
-          <Button width='xl' className='font-bold'>
-            {localize('about_me')}
-          </Button>
-          <Button width='xl' className='font-bold'>
-            {localize('contact_me')}
-          </Button>
+          <a href='#about_me'>
+            <Button width='xl' className='font-bold'>
+              {localize('about_me')}
+            </Button>
+          </a>
+          <a href='#contact_me'>
+            <Button width='xl' className='font-bold'>
+              {localize('contact_me')}
+            </Button>
+          </a>
         </div>
       </div>
       <div className='container flex max-w-6xl flex-col items-center bg-gradient-to-r from-dark-700 to-dark-800 p-0 pb-10'>
