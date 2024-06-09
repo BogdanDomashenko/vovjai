@@ -40,12 +40,6 @@
         }
       }
     },
-    "workCategory": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::work-category.work-category",
-      "inversedBy": "works"
-    },
     "previewImage": {
       "type": "media",
       "multiple": false,
@@ -91,6 +85,12 @@
         }
       },
       "type": "json"
+    },
+    "workCategory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::work-category.work-category",
+      "inversedBy": "works"
     }
   }
 }

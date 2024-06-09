@@ -24,12 +24,6 @@
       },
       "type": "string"
     },
-    "workCategory": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::work-category.work-category",
-      "inversedBy": "workSubcategories"
-    },
     "works": {
       "type": "relation",
       "relation": "oneToMany",
@@ -43,6 +37,12 @@
         }
       },
       "type": "text"
+    },
+    "workCategory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::work-category.work-category",
+      "inversedBy": "workSubcategories"
     }
   }
 }

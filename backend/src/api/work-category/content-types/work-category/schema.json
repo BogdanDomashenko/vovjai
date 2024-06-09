@@ -8,11 +8,20 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "string",
       "required": true
     },
@@ -25,18 +34,28 @@
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "instruments": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
       "options": [
         "Photoshop:PHOTOSHOP",
         "Clip studio:CLIP_STUDIO",
-        "After effects:AFTER_EFFECTS",
+        "After Effects:AFTER_EFFECTS",
         "Ilustrator:ILUSTRATOR",
         "Figma:FIGMA"
-      ],
-      "customField": "plugin::multi-select.multi-select"
+      ]
     },
     "works": {
       "type": "relation",
@@ -45,13 +64,24 @@
       "mappedBy": "workCategory"
     },
     "type": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "enumeration",
       "enum": [
         "main",
         "other"
-      ]
+      ],
+      "default": "main"
     },
     "text": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "text"
     },
     "pageImage": {
@@ -63,18 +93,12 @@
         "files",
         "videos",
         "audios"
-      ]
-    },
-    "pageBg": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "workSubcategories": {
       "type": "relation",
@@ -83,17 +107,28 @@
       "mappedBy": "workCategory"
     },
     "pageDescription": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "text"
     },
     "footerBg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
-      "type": "media",
-      "multiple": false
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

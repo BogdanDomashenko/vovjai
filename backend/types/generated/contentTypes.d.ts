@@ -877,11 +877,6 @@ export interface ApiWorkWork extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    workCategory: Attribute.Relation<
-      'api::work.work',
-      'manyToOne',
-      'api::work-category.work-category'
-    >;
     previewImage: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -905,6 +900,11 @@ export interface ApiWorkWork extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    workCategory: Attribute.Relation<
+      'api::work.work',
+      'manyToOne',
+      'api::work-category.work-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::work.work', 'oneToOne', 'admin::user'> &
@@ -929,41 +929,86 @@ export interface ApiWorkCategoryWorkCategory extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
   };
   attributes: {
-    name: Attribute.String & Attribute.Required;
-    image: Attribute.Media;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     instruments: Attribute.JSON &
       Attribute.CustomField<
         'plugin::multi-select.multi-select',
         [
           'Photoshop:PHOTOSHOP',
           'Clip studio:CLIP_STUDIO',
-          'After effects:AFTER_EFFECTS',
+          'After Effects:AFTER_EFFECTS',
           'Ilustrator:ILUSTRATOR',
           'Figma:FIGMA'
         ]
-      >;
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     works: Attribute.Relation<
       'api::work-category.work-category',
       'oneToMany',
       'api::work.work'
     >;
-    type: Attribute.Enumeration<['main', 'other']>;
-    text: Attribute.Text;
-    pageImage: Attribute.Media;
-    pageBg: Attribute.Media;
+    type: Attribute.Enumeration<['main', 'other']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'main'>;
+    text: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageImage: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     workSubcategories: Attribute.Relation<
       'api::work-category.work-category',
       'oneToMany',
       'api::work-subcategory.work-subcategory'
     >;
-    pageDescription: Attribute.Text;
-    footerBg: Attribute.Media;
+    pageDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    footerBg: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::work-category.work-category',
       'oneToOne',
@@ -976,6 +1021,12 @@ export interface ApiWorkCategoryWorkCategory extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::work-category.work-category',
+      'oneToMany',
+      'api::work-category.work-category'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1003,11 +1054,6 @@ export interface ApiWorkSubcategoryWorkSubcategory
           localized: true;
         };
       }>;
-    workCategory: Attribute.Relation<
-      'api::work-subcategory.work-subcategory',
-      'manyToOne',
-      'api::work-category.work-category'
-    >;
     works: Attribute.Relation<
       'api::work-subcategory.work-subcategory',
       'oneToMany',
@@ -1019,6 +1065,11 @@ export interface ApiWorkSubcategoryWorkSubcategory
           localized: true;
         };
       }>;
+    workCategory: Attribute.Relation<
+      'api::work-subcategory.work-subcategory',
+      'manyToOne',
+      'api::work-category.work-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
