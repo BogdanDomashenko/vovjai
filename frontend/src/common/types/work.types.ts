@@ -15,6 +15,7 @@ export interface Work {
   images: ImageDetails[] | null;
   worksSubcategory: ResponseRecord<WorkSubcategory>;
   longDescription: string;
+  videos: string[] | null;
 }
 
 export type WorkCategoryInstrument =

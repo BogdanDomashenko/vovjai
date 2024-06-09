@@ -83,6 +83,14 @@
       "relation": "manyToOne",
       "target": "api::work-subcategory.work-subcategory",
       "inversedBy": "works"
+    },
+    "videos": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
     }
   }
 }

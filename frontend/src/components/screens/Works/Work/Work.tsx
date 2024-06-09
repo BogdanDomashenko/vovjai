@@ -14,6 +14,8 @@ export interface WorkProps {
 export const Work: FC<WorkProps> = ({ data }) => {
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const [activeModalImage, setActiveModalImage] = useState(0);
+  const items = [...(data.videos || []), ...(data.images || [])];
+  const activeItem = items[activeModalImage];
 
   return (
     <>
@@ -44,18 +46,20 @@ export const Work: FC<WorkProps> = ({ data }) => {
       >
         <p>{data.longDescription}</p>
         <div>
-          {data.images && (
-            <div className='mt-4 flex justify-center'>
-              <img
-                src={getUploadUrl(data.images[activeModalImage].url)}
-                alt='work'
-                className='w-full'
-              />
-            </div>
-          )}
+          <div className='mt-4 flex justify-center'>
+            {typeof activeItem === 'string' ? (
+              <iframe
+                width='100%'
+                height='315'
+                src='https://www.youtube.com/embed/tgbNymZ7vqY'
+              ></iframe>
+            ) : (
+              <img src={getUploadUrl(activeItem.url)} alt='work' className='w-full' />
+            )}
+          </div>
           <div className='flex justify-between gap-4 py-2'>
             <div className='flex flex-wrap gap-2'>
-              {data.images?.map((_, index) => (
+              {items.map((_, index) => (
                 <Button
                   key={index}
                   className={cx('h-12 w-12', {

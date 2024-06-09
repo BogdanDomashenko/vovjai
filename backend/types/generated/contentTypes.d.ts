@@ -900,6 +900,12 @@ export interface ApiWorkWork extends Schema.CollectionType {
       'manyToOne',
       'api::work-subcategory.work-subcategory'
     >;
+    videos: Attribute.JSON &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::work.work', 'oneToOne', 'admin::user'> &
