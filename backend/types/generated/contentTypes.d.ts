@@ -807,7 +807,6 @@ export interface ApiTranslationTranslation extends Schema.CollectionType {
   attributes: {
     key: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
