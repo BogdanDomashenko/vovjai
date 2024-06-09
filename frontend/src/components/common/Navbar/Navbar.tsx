@@ -3,6 +3,7 @@ import logo from '../../../assets/images/logo.svg';
 import { LanguageSelect } from './LanguageSelect';
 import { cx } from 'class-variance-authority';
 import vj2logo from '../../../assets/images/VJlogo2.svg';
+import { css } from '@emotion/css';
 
 export interface NavbarProps {
   className?: string;
@@ -13,6 +14,24 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     <nav
       className={cx(
         'fixed z-10 flex w-full items-center justify-between bg-black/[90%] px-5 py-3 text-md',
+        css`
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1.5px;
+            opacity: 0.7;
+            background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 1) 0%,
+              rgba(255, 255, 255, 1) 50%,
+              rgba(0, 0, 0, 1) 100%
+            );
+            z-index: -1;
+          }
+        `,
         className,
       )}
     >

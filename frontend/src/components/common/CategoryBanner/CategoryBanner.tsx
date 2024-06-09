@@ -36,7 +36,7 @@ export const CategoryBanner: FC<CategoryBannerProps> = ({ title, text, instrumen
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className='flex w-6/12 flex-col items-center md:flex-row'>
-          <div className='flex flex-col items-center gap-sm md:inline-flex md:w-[min-content] md:flex-row'>
+          <div className='flex flex-col items-center justify-center gap-sm md:inline-flex md:w-[min-content] md:flex-row'>
             <h2 className='text-center font-sans text-md font-bold uppercase leading-[25px] text-white md:text-left md:text-lg md:leading-[50px]'>
               {title}
             </h2>
@@ -58,7 +58,7 @@ export const CategoryBanner: FC<CategoryBannerProps> = ({ title, text, instrumen
         </div>
         <div
           className={cx(
-            'mt-4 min-h-[80px] pr-4 text-center leading-none text-white md:mt-0 md:w-4/12 md:text-right',
+            'mt-4 min-h-[80px] pr-4 text-center text-xs leading-none text-white md:mt-0 md:w-4/12 md:text-right md:text-sm',
             {
               opacity: isHovered ? 1 : 0,
               invisible: !isHovered && isBreakpointHigherThan('md'),

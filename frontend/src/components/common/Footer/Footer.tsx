@@ -34,8 +34,8 @@ export const Footer: FC<FooterProps> = ({ title, children, bgImage, className })
             <div>{localize('all_rights_reserved')}</div>
           </div>
           <div className='flex flex-col items-center justify-center'>
-            <img src={VJlogo2} alt='VJlogo2' className='w-20' />
-            <div className='mt-1 text-xs'>Vovjai.com</div>
+            <img src={VJlogo2} alt='VJlogo2' className='w-16 md:w-20' />
+            <div className='mt-1 text-xxs md:text-sm'>Vovjai.com</div>
           </div>
           <div className='flex flex-col items-end text-xxs md:text-sm'>
             <p>{localize('design_by_vovjai')}</p>

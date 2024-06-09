@@ -36,7 +36,7 @@ export const Modal: FC<ModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className={cx('fixed right-0 top-0 h-screen w-full bg-gray-950/[0.5]')}>
+    <div className={cx('fixed right-0 top-0 z-20 h-screen w-full bg-gray-950/[0.5]')}>
       <div
         ref={ref}
         style={{ maxHeight: 'calc(100svh - 60px)' }}
