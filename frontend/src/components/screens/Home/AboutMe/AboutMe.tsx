@@ -25,7 +25,7 @@ export const AboutMe: FC = () => {
               dangerouslySetInnerHTML={{
                 __html: localize('about_me_text_1'),
               }}
-              className='whitespace-pre-line text-xs leading-none md:text-sm'
+              className='whitespace-pre-line text-xs md:text-sm'
             />
           </div>
           <div className='mt-6 flex w-3/12 justify-center'>
@@ -38,7 +38,7 @@ export const AboutMe: FC = () => {
               dangerouslySetInnerHTML={{
                 __html: localize('about_me_text_2'),
               }}
-              className='whitespace-pre-line text-xs leading-none md:text-sm'
+              className='whitespace-pre-line text-xs md:text-sm'
             />
           </div>
           <div className='flex flex-col items-center justify-around md:w-4/12 md:flex-row'>
@@ -56,7 +56,7 @@ export const AboutMe: FC = () => {
               dangerouslySetInnerHTML={{
                 __html: localize('about_me_text_3'),
               }}
-              className='whitespace-pre-line text-xs leading-none md:text-sm'
+              className='whitespace-pre-line text-xs md:text-sm'
             />
           </div>
           <div className='hidden w-4/12 items-center justify-around md:flex'>
@@ -70,7 +70,7 @@ export const AboutMe: FC = () => {
                 __html: localize('about_me_text_4'),
               }}
               className={cx(
-                'whitespace-pre-line text-xs leading-none md:text-sm',
+                'whitespace-pre-line text-xs md:text-sm',
                 css`
                   b {
                     color: #6dff49;
@@ -91,7 +91,7 @@ export const AboutMe: FC = () => {
             dangerouslySetInnerHTML={{
               __html: localize('about_me_text_5_1'),
             }}
-            className='whitespace-pre-line text-xs leading-none md:w-8/12 md:text-sm'
+            className='whitespace-pre-line text-xs md:w-8/12 md:text-sm'
           />
         </div>
       </Container>

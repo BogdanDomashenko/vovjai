@@ -6,8 +6,9 @@ export const useLanguages = () => {
   const languages = useQuery<Language[]>({
     queryKey: ['languages'],
     queryFn: async () => {
-      const res = await api.get<{ data: Language[] }>('/i18n/locales');
-      return res.data.data;
+      const res = await api.get<Language[]>('/i18n/locales');
+      console.log(res.data);
+      return res.data;
     },
   });
 

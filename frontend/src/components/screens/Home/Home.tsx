@@ -14,7 +14,6 @@ import sadSmileIcon from '../../../assets/images/sad-smile.svg';
 import instagramIcon from '../../../assets/icons/instagram2.svg';
 import youKnowImg from '../../../assets/images/you-know.png';
 import youKnowSmall from '../../../assets/images/you-know-small.png';
-import logo from '../../../assets/images/logo.svg';
 import heartImg from '../../../assets/icons/heart.svg';
 import rainbowLineImg from '../../../assets/images/rainbow-line.png';
 import { Link } from 'react-router-dom';
@@ -27,7 +26,7 @@ export const Home: FC = () => {
     <div className={`bg-[url('/bg.jpg')]`}>
       <div className='container flex max-w-6xl flex-col items-center bg-gradient-to-r from-dark-700 to-dark-800 px-0 pb-10 pt-[60px]'>
         <div className='bg-black md:p-4'>
-          <img src={vovjaiPortfolioMasterImg} alt='vovjai-portfilio-master' className='md:border' />
+          <img src={vovjaiPortfolioMasterImg} alt='vovjai-portfilio-master' className='border' />
         </div>
       </div>
       <div className='container flex max-w-6xl flex-col items-center bg-gradient-to-r from-dark-700 to-dark-800'>
@@ -75,7 +74,6 @@ export const Home: FC = () => {
           </div>
           <img src={youKnowImg} alt='you-know' className='mt-4 hidden w-full md:block' />
           <img src={youKnowSmall} alt='you-know' className='mt-4 w-full md:hidden' />
-          <img src={logo} alt='logo' className='w-48' />
           <img src={heartImg} alt='heart' className='mt-6 h-8 w-8' />
           <img src={rainbowLineImg} alt='rainbow-line' className='mt-8 w-full' />
         </div>

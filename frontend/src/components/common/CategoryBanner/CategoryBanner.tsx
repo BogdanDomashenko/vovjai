@@ -17,10 +17,10 @@ export const CategoryBanner: FC<CategoryBannerProps> = ({ title, text, instrumen
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className='cursor-pointer bg-black p-sm'>
+    <div className='cursor-pointer bg-black p-3'>
       <div
         className={cx(
-          'flex flex-col items-center justify-between bg-cover bg-no-repeat p-1 md:flex-row',
+          'flex flex-col items-center justify-between bg-cover bg-no-repeat md:flex-row',
           {
             'ring-1 ring-white': isHovered,
           },
@@ -37,7 +37,7 @@ export const CategoryBanner: FC<CategoryBannerProps> = ({ title, text, instrumen
       >
         <div className='flex w-6/12 flex-col items-center md:flex-row'>
           <div className='flex flex-col items-center justify-center gap-sm md:inline-flex md:w-[min-content] md:flex-row'>
-            <h2 className='text-center font-sans text-md font-bold uppercase leading-[25px] text-white md:text-left md:text-lg md:leading-[50px]'>
+            <h2 className='p-2 text-center font-sans text-md font-bold uppercase leading-[25px] text-white md:text-left md:text-lg md:leading-[50px]'>
               {title}
             </h2>
             <Separator className='ml-4 hidden md:block' />

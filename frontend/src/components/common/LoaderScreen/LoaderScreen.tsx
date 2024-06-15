@@ -1,9 +1,14 @@
+import { cx } from 'class-variance-authority';
 import { FC } from 'react';
 import { MutatingDots } from 'react-loader-spinner';
 
-export const LoaderScreen: FC = () => {
+export interface LoaderScreenProps {
+  className?: string;
+}
+
+export const LoaderScreen: FC<LoaderScreenProps> = ({ className }) => {
   return (
-    <div className='relative h-[100svh] w-full bg-black'>
+    <div className={cx('relative h-[100svh] w-full bg-black', className)}>
       <MutatingDots
         visible={true}
         height='100'

@@ -23,7 +23,7 @@ export const Works: FC = () => {
   }, []);
 
   return (
-    <>
+    <div className={`bg-[url('/bg.jpg')]`}>
       <Container
         className='bg-black px-0 pt-[70px] md:px-4 md:pb-4 md:pt-[90px]'
         gradientBg={false}
@@ -77,6 +77,6 @@ export const Works: FC = () => {
             ))}
         </div>
       </Footer>
-    </>
+    </div>
   );
 };

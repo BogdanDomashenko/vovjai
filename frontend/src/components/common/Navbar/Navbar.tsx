@@ -35,10 +35,10 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         className,
       )}
     >
-      <a href='/'>
+      <a href='/' className='p-2 ring-white hover:ring-1'>
         <img src={logo} alt='logo' className='w-24' />
       </a>
-      <img src={vj2logo} alt='vj2logo' className='w-20 md:mt-3' />
+      <img src={vj2logo} alt='vj2logo' className='w-20' />
       {/*       <DesktopItems items={navbarItems} className='hidden md:flex' />
       <MobileItems
         items={navbarItems}

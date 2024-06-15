@@ -3,6 +3,7 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { useClickOutside } from '../../../common/hooks/useClickOutside';
 import { cx } from 'class-variance-authority';
 import { Button } from '../Button';
+import { css } from '@emotion/css';
 
 export interface ModalProps {
   isOpen: boolean;
@@ -52,6 +53,11 @@ export const Modal: FC<ModalProps> = ({
             'max-w-3xl': width === '3xl',
             'w-full': width === 'full',
           },
+          css`
+            &::-webkit-scrollbar {
+              display: none;
+            }
+          `,
         )}
       >
         <div className='flex justify-between'>
