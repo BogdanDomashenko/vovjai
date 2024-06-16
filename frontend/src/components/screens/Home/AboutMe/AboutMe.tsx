@@ -54,7 +54,7 @@ export const AboutMe: FC = () => {
           <div className='md:w-8/12'>
             <span
               dangerouslySetInnerHTML={{
-                __html: localize('about_me_text_3'),
+                __html: localize('about_me_text_3_2'),
               }}
               className='whitespace-pre-line text-xs md:text-sm'
             />
