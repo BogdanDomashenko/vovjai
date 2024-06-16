@@ -41,8 +41,7 @@ services:
       - backend
       - frontend
     ports:
-      - 3001:3001
-      - 80:80
+      - 443:443
     # mount ssl certificates
     volumes:
       - ./nginx/certs:/etc/nginx/certs
