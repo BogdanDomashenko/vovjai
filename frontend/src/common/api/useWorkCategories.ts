@@ -10,6 +10,7 @@ export const useWorkCategories = (payload?: { type?: 'main' | 'other' }) => {
       const res = await api.get<{ data: ResponseRecord<WorkCategory>[] }>('/work-categories', {
         params: {
           'populate[0]': 'image',
+          'populate[1]': 'mobileImage',
           ...(payload?.type && { 'filters[type]': payload.type }),
           'sort[createdAt]': 'asc',
         },

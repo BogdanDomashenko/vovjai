@@ -1007,6 +1007,18 @@ export interface ApiWorkCategoryWorkCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    mobileImage: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    bgImage: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

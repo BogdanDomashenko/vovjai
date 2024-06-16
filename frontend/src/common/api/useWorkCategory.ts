@@ -13,6 +13,7 @@ export const useWorkCategory = (payload: { id: number }) => {
           params: {
             'populate[0]': 'pageImage',
             'populate[1]': 'footerBg',
+            'populate[2]': 'bgImage',
           },
         },
       );

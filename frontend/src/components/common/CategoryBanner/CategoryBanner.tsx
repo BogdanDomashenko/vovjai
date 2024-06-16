@@ -10,9 +10,16 @@ export interface CategoryBannerProps {
   text: string;
   instruments: WorkCategoryInstrument[];
   image: string;
+  mobileImage: string;
 }
 
-export const CategoryBanner: FC<CategoryBannerProps> = ({ title, text, instruments, image }) => {
+export const CategoryBanner: FC<CategoryBannerProps> = ({
+  title,
+  text,
+  instruments,
+  image,
+  mobileImage,
+}) => {
   const { isBreakpointHigherThan, isBreakpointLowerThan } = useBreakpoint();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -26,17 +33,24 @@ export const CategoryBanner: FC<CategoryBannerProps> = ({ title, text, instrumen
           },
         )}
         style={{
-          backgroundImage: !isHovered ? `url("${image}")` : 'none',
-          ...(isBreakpointLowerThan('md') && {
-            backgroundPosition: 'right bottom',
-            backgroundSize: '250%',
-          }),
+          backgroundImage: !isHovered
+            ? `url("${isBreakpointLowerThan('md') ? mobileImage : image}")`
+            : 'none',
+          ...(isBreakpointLowerThan('md')
+            ? {
+                backgroundPosition: 'right bottom',
+                backgroundSize: '250%',
+              }
+            : {
+                backgroundPosition: 'right',
+                backgroundSize: 'cover',
+              }),
         }}
         onMouseOver={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className='flex w-6/12 flex-col items-center md:flex-row'>
-          <div className='flex flex-col items-center justify-center gap-sm md:w-[min-content] md:flex-row md:pt-2'>
+          <div className='flex flex-col items-center justify-center gap-sm md:inline-flex md:w-[min-content] md:flex-row'>
             <h2 className='mt-1 p-2 text-center font-sans text-md font-bold uppercase leading-[25px] text-white md:text-left md:text-lg md:leading-[50px]'>
               {title}
             </h2>

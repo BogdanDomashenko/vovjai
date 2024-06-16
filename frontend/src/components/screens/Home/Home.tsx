@@ -53,6 +53,9 @@ export const Home: FC = () => {
                 text={category.text}
                 instruments={category.instruments}
                 image={getUploadUrl(category.image.url)}
+                mobileImage={getUploadUrl(
+                  category.mobileImage ? category.mobileImage.url : category.image.url,
+                )}
               />
             </Link>
           ))}

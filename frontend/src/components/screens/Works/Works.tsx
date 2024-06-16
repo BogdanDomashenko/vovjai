@@ -23,7 +23,11 @@ export const Works: FC = () => {
   }, []);
 
   return (
-    <div className={`bg-[url('/bg.jpg')]`}>
+    <div
+      style={{
+        backgroundImage: `url(${data?.bgImage ? getUploadUrl(data.bgImage.url) : '/bg.jpg'})`,
+      }}
+    >
       <Container
         className='bg-black px-0 pt-[70px] md:px-4 md:pb-4 md:pt-[90px]'
         gradientBg={false}
@@ -72,6 +76,9 @@ export const Works: FC = () => {
                   text={category.text}
                   instruments={category.instruments}
                   image={getUploadUrl(category.image.url)}
+                  mobileImage={getUploadUrl(
+                    category.mobileImage ? category.mobileImage.url : category.image.url,
+                  )}
                 />
               </Link>
             ))}

@@ -34,4 +34,6 @@ export interface WorkCategory {
   text: string;
   pageDescription: string;
   footerBg: ImageDetails;
+  mobileImage?: ImageDetails;
+  bgImage?: ImageDetails;
 }
