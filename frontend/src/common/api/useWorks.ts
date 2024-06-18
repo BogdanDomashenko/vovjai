@@ -5,7 +5,9 @@ import { ResponseRecord } from '../types';
 
 export const useWorks = (payload?: { workSubcategory: number }) => {
   const works = useQuery<ResponseRecord<Work>[]>({
-    queryKey: ['works'],
+    queryKey: [
+      `works_${payload?.workSubcategory || 'all'}`,
+    ],
     queryFn: async () => {
       const res = await api.get<{ data: ResponseRecord<Work>[] }>('/works', {
         params: {
