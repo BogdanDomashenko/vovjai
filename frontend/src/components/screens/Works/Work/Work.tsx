@@ -51,7 +51,7 @@ export const Work: FC<WorkProps> = ({ data }) => {
               <iframe
                 width='100%'
                 height='315'
-                src='https://www.youtube.com/embed/tgbNymZ7vqY'
+                src={activeItem}
               ></iframe>
             ) : (
               <img src={getUploadUrl(activeItem.url)} alt='work' className='w-full' />
