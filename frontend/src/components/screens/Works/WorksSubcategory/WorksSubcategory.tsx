@@ -13,9 +13,13 @@ export const WorksSubcategory: FC<WorksSubcategoryProps> = ({ data, ...rest }) =
     <div {...rest}>
       <Banner title={data.name} text={data.description} />
       <div className='mt-8 grid grid-cols-1 gap-4 md:grid-cols-2'>
-        {data.works.map((work) => (
-          <Work key={work.id} data={work} />
-        ))}
+        {data.works
+          .sort((a, b) =>
+            new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime() ? -1 : 1,
+          )
+          .map((work) => (
+            <Work key={work.id} data={work} />
+          ))}
       </div>
     </div>
   );
