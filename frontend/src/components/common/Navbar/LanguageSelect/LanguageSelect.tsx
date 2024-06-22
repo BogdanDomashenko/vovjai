@@ -5,7 +5,6 @@ import { Button } from '../../../ui';
 import { useClickOutside } from '../../../../common/hooks/useClickOutside';
 
 export const LanguageSelect: FC = () => {
-  const navigate = useNavigate();
   const listRef = useRef(null);
   const { setLanguage, language } = useLocalization();
   const { data } = useLanguages();
