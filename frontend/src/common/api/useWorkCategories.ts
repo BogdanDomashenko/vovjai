@@ -8,7 +8,7 @@ export const useWorkCategories = (payload?: { type?: 'main' | 'other' }) => {
   const { language } = useLocalization();
 
   const workCategories = useQuery<ResponseRecord<WorkCategory>[]>({
-    queryKey: ['workCategories'],
+    queryKey: [`workCategories_${payload?.type || 'all'}_${language}`],
     queryFn: async () => {
       const res = await api.get<{ data: ResponseRecord<WorkCategory>[] }>('/work-categories', {
         params: {

@@ -3,8 +3,10 @@ import { useLanguages } from '../../../../common/api';
 import { useLocalization } from '../../../../common/hooks';
 import { Button } from '../../../ui';
 import { useClickOutside } from '../../../../common/hooks/useClickOutside';
+import { useNavigate } from 'react-router-dom';
 
 export const LanguageSelect: FC = () => {
+  const navigate = useNavigate();
   const listRef = useRef(null);
   const { setLanguage, language } = useLocalization();
   const { data } = useLanguages();
@@ -31,6 +33,7 @@ export const LanguageSelect: FC = () => {
                   onClick={() => {
                     setLanguage(item.code);
                     setIsListOpen(false);
+                    navigate('/');
                   }}
                 >
                   {item.code}
