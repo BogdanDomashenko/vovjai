@@ -6,12 +6,15 @@ import dayjs from 'dayjs';
 import { Button, Modal } from '../../../ui';
 import arrowRight from '../../../../assets/icons/arrow-right.svg';
 import { cx } from 'class-variance-authority';
+import { useLocalization } from '../../../../common/hooks';
 
 export interface WorkProps {
   data: ResponseRecord<TWork>;
 }
 
 export const Work: FC<WorkProps> = ({ data }) => {
+  const { localize } = useLocalization();
+
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const [activeModalImage, setActiveModalImage] = useState(0);
   const items = [...(data.videos || []), ...(data.images || [])];
@@ -29,10 +32,10 @@ export const Work: FC<WorkProps> = ({ data }) => {
         </div>
         <p className='mt-4 leading-tight'>{data.shortDescription}</p>
         {data.images?.length && (
-          <div className='flex justify-center'>
+          <div className='mt-2 flex justify-center'>
             <Button className='uppercase' onClick={() => setIsDescriptionOpen(true)}>
               <img src={arrowRight} alt='arrow' className='h-3 rotate-90' />
-              <span>Description</span>
+              <span>{localize('description')}</span>
               <img src={arrowRight} alt='arrow' className='h-3 rotate-90' />
             </Button>
           </div>
@@ -48,11 +51,7 @@ export const Work: FC<WorkProps> = ({ data }) => {
         <div>
           <div className='mt-4 flex justify-center'>
             {typeof activeItem === 'string' ? (
-              <iframe
-                width='100%'
-                height='315'
-                src={activeItem}
-              ></iframe>
+              <iframe width='100%' height='315' src={activeItem}></iframe>
             ) : (
               <img src={getUploadUrl(activeItem.url)} alt='work' className='w-full' />
             )}

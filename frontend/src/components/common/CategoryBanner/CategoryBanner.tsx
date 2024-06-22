@@ -27,7 +27,7 @@ export const CategoryBanner: FC<CategoryBannerProps> = ({
     <div className='cursor-pointer bg-black p-3'>
       <div
         className={cx(
-          'flex flex-col items-center justify-between bg-cover bg-no-repeat md:flex-row',
+          'flex flex-col items-center bg-cover bg-no-repeat md:flex-row md:justify-between',
           {
             'ring-1 ring-white': isHovered,
           },
@@ -38,8 +38,9 @@ export const CategoryBanner: FC<CategoryBannerProps> = ({
             : 'none',
           ...(isBreakpointLowerThan('md')
             ? {
-                backgroundPosition: 'right bottom',
-                backgroundSize: '250%',
+                backgroundPosition: 'cover',
+                //backgroundSize: '100%',
+                minHeight: '320px',
               }
             : {
                 backgroundPosition: 'right',

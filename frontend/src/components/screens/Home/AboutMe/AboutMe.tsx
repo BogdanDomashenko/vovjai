@@ -79,7 +79,12 @@ export const AboutMe: FC = () => {
               )}
             />
             <div className='flex justify-center md:justify-start'>
-              <Button className='mt-6 font-bold'>{localize('download_my_resume')}</Button>
+              <a
+                href='https://admin.vovjai.com/uploads/Volodymyr_Kripak_Resume_2024_beb1b4e9d3.pdf'
+                target='_blank'
+              >
+                <Button className='mt-6 font-bold'>{localize('download_my_resume')}</Button>
+              </a>
             </div>
           </div>
           <div className='flex items-center justify-around md:w-4/12'>

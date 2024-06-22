@@ -9,11 +9,7 @@ import { AboutMe } from './AboutMe/AboutMe';
 import { ContactMe } from './ContactMe';
 import { Footer } from '../../common/Footer';
 import homeFooterBg from '../../../assets/images/home-footer-bg.png';
-import smileIcon from '../../../assets/images/smile.svg';
-import sadSmileIcon from '../../../assets/images/sad-smile.svg';
 import instagramIcon from '../../../assets/icons/instagram2.svg';
-import youKnowImg from '../../../assets/images/you-know.png';
-import youKnowSmall from '../../../assets/images/you-know-small.png';
 import heartImg from '../../../assets/icons/heart.svg';
 import rainbowLineImg from '../../../assets/images/rainbow-line.png';
 import { Link } from 'react-router-dom';
@@ -71,12 +67,6 @@ export const Home: FC = () => {
               @sorryiambroke
             </Button>
           </a>
-          <div className='mt-16 flex gap-1'>
-            <img src={smileIcon} className='w-32 md:w-20' />
-            <img src={sadSmileIcon} className='w-32 md:w-20' />
-          </div>
-          <img src={youKnowImg} alt='you-know' className='mt-4 hidden w-full md:block' />
-          <img src={youKnowSmall} alt='you-know' className='mt-4 w-full md:hidden' />
           <img src={heartImg} alt='heart' className='mt-6 h-8 w-8' />
           <img src={rainbowLineImg} alt='rainbow-line' className='mt-8 w-full' />
         </div>

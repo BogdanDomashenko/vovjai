@@ -18,7 +18,10 @@ export const LanguageSelect: FC = () => {
         {language}
       </Button>
       {isListOpen ? (
-        <div className='absolute left-0 top-12 z-10 w-full' ref={listRef}>
+        <div
+          className='absolute left-0 top-[53px] z-10 flex w-full flex-col gap-1 bg-dark-950 pt-1'
+          ref={listRef}
+        >
           {isListOpen &&
             data
               ?.filter((item) => item.code !== language)
