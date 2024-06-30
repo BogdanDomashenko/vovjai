@@ -12,6 +12,13 @@ export const LanguageSelect: FC = () => {
 
   useClickOutside(listRef, () => setIsListOpen(false));
 
+  const renderTitle = (code: string) => {
+    if (code === 'uk') return 'ukr';
+    if (code === 'ja') return 'jpn';
+
+    return code;
+  };
+
   return (
     <div className='relative'>
       <Button width='md' className='uppercase' onClick={() => setIsListOpen(!isListOpen)}>
@@ -34,7 +41,7 @@ export const LanguageSelect: FC = () => {
                     window.location.href = '/';
                   }}
                 >
-                  {item.code}
+                  {renderTitle(item.code)}
                 </Button>
               ))}
         </div>
