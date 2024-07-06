@@ -15,6 +15,7 @@ export const useWorks = (payload?: { workSubcategory: number }) => {
           locale: language,
           'populate[0]': 'workSubcategory',
           'populate[1]': 'workSubcategory',
+          'sort[date]': 'desc',
           'sort[createdAt]': 'desc',
           ...(payload?.workSubcategory && { 'filters[workSubcategory]': payload.workSubcategory }),
         },

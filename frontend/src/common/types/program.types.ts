@@ -1,4 +1,4 @@
-import { ImageDetails } from './general.types';
+import { MediaDetails } from './general.types';
 
 export interface ProgramSubcategory {
   name: string;
@@ -19,6 +19,6 @@ export interface Program {
   programSubcategory: ProgramSubcategory;
   price: number;
   special: boolean;
-  image: ImageDetails;
+  image: MediaDetails;
   discount: number;
 }

@@ -1,4 +1,4 @@
-import { ImageDetails, ResponseRecord } from './general.types';
+import { MediaDetails, ResponseRecord } from './general.types';
 
 export interface WorkSubcategory {
   name: string;
@@ -11,11 +11,13 @@ export interface Work {
   title: string;
   shortDescription: string;
   workCategory: ResponseRecord<WorkCategory>;
-  previewImage: ImageDetails;
-  images: ImageDetails[] | null;
+  previewImage: MediaDetails;
+  images: MediaDetails[] | null;
   worksSubcategory: ResponseRecord<WorkSubcategory>;
   longDescription: string;
   videos: string[] | null;
+  date: string;
+  media: MediaDetails[];
 }
 
 export type WorkCategoryInstrument =
@@ -28,12 +30,12 @@ export type WorkCategoryInstrument =
 export interface WorkCategory {
   name: string;
   type: 'main' | 'other';
-  image: ImageDetails;
-  pageImage: ImageDetails;
+  image: MediaDetails;
+  pageImage: MediaDetails;
   instruments: WorkCategoryInstrument[];
   text: string;
   pageDescription: string;
-  footerBg: ImageDetails;
-  mobileImage?: ImageDetails;
-  bgImage?: ImageDetails;
+  footerBg: MediaDetails;
+  mobileImage?: MediaDetails;
+  bgImage?: MediaDetails;
 }

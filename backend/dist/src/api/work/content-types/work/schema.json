@@ -91,6 +91,27 @@
             "relation": "manyToOne",
             "target": "api::work-category.work-category",
             "inversedBy": "works"
+        },
+        "date": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "date"
+        },
+        "media": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+                "videos"
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
         }
     }
 }

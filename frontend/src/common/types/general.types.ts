@@ -36,7 +36,7 @@ export interface PaginationRequest {
 
 export type ResponseRecord<T> = T & { id: number; createdAt: string; updatedAt: string };
 
-export interface ImageDetails {
+export interface MediaDetails {
   id: number;
   name: string;
   alternativeText: string | null;

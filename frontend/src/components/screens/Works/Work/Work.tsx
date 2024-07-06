@@ -17,8 +17,24 @@ export const Work: FC<WorkProps> = ({ data }) => {
 
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const [activeModalImage, setActiveModalImage] = useState(0);
-  const items = [...(data.videos || []), ...(data.images || [])];
+  // const items = [...(data.videos || []), ...(data.images || [])];
+  const items = [
+    ...(data.media?.map((media) => ({ type: 'media', url: media.url })) || []),
+    ...(data.videos?.map((url) => ({ type: 'youtube', url })) || []),
+    ...(data.images?.map((image) => ({ type: 'image', url: image.url })) || []),
+  ];
   const activeItem = items[activeModalImage];
+
+  const renderActiveItem = () => {
+    if (activeItem.type === 'media')
+      return <video controls src={getUploadUrl(activeItem.url)} className='w-full' />;
+
+    if (activeItem.type === 'youtube')
+      return <iframe width='100%' height='315' src={activeItem.url}></iframe>;
+
+    if (activeItem.type === 'image')
+      return <img src={getUploadUrl(activeItem.url)} alt='work' className='w-full' />;
+  };
 
   return (
     <>
@@ -27,7 +43,7 @@ export const Work: FC<WorkProps> = ({ data }) => {
           <img src={getUploadUrl(data.previewImage.url)} alt='work' className='w-full' />
           <div className='flex items-center justify-between gap-2 bg-black p-2'>
             <h2 className='text-sm font-bold'>{data.title}</h2>
-            <div>{dayjs(data.createdAt).format('DD.MM.YYYY')}</div>
+            <div>{dayjs(data.date || data.createdAt).format('DD.MM.YYYY')}</div>
           </div>
         </div>
         <p className='mt-4 leading-tight'>{data.shortDescription}</p>
@@ -49,13 +65,7 @@ export const Work: FC<WorkProps> = ({ data }) => {
       >
         <p>{data.longDescription}</p>
         <div>
-          <div className='mt-4 flex justify-center'>
-            {typeof activeItem === 'string' ? (
-              <iframe width='100%' height='315' src={activeItem}></iframe>
-            ) : (
-              <img src={getUploadUrl(activeItem.url)} alt='work' className='w-full' />
-            )}
-          </div>
+          <div className='mt-4 flex justify-center'>{renderActiveItem()}</div>
           <div className='flex justify-between gap-4 py-2'>
             <div className='flex flex-wrap gap-2'>
               {items.map((_, index) => (

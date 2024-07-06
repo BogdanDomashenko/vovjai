@@ -905,6 +905,18 @@ export interface ApiWorkWork extends Schema.CollectionType {
       'manyToOne',
       'api::work-category.work-category'
     >;
+    date: Attribute.Date &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    media: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::work.work', 'oneToOne', 'admin::user'> &
