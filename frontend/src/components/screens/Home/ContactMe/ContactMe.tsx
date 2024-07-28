@@ -45,8 +45,8 @@ export const ContactMe: FC = () => {
 
   return (
     <div id='contact_me'>
-      <Container className='pb-10'>
-        <div className='flex justify-center pt-8'>
+      <Container className='py-12'>
+        <div className='flex justify-center'>
           <Separator direction='horizontal' />
         </div>
         <Banner title={localize('contact_me')} text={localize('contact_me_text')} />

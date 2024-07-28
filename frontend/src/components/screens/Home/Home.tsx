@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import vovjaiPortfolioMasterImg from '../../../assets/images/baner-animation.webp';
 import { useLocalization } from '../../../common/hooks';
 import { Banner, CategoryBanner } from '../../common';
@@ -12,11 +12,16 @@ import homeFooterBg from '../../../assets/images/home-footer-bg.png';
 import instagramIcon from '../../../assets/icons/instagram2.svg';
 import heartImg from '../../../assets/icons/heart.svg';
 import rainbowLineImg from '../../../assets/images/rainbow-line.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Home: FC = () => {
   const { localize } = useLocalization();
+  const { pathname } = useLocation();
   const { data } = useWorkCategories({ type: 'main' });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className={`bg-[url('/bg.jpg')]`}>
@@ -40,7 +45,7 @@ export const Home: FC = () => {
           </a>
         </div>
       </div>
-      <div className='container flex max-w-6xl flex-col items-center bg-gradient-to-r from-dark-700 to-dark-800 p-0 pb-10'>
+      <div className='container flex max-w-6xl flex-col items-center bg-gradient-to-r from-dark-700 to-dark-800 p-0'>
         <div className='mt-10 flex flex-col gap-4'>
           {data?.map((category) => (
             <Link key={category.id} to={`/works/${category.id}`}>

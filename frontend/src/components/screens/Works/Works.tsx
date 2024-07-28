@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { Button, Container } from '../../ui';
 import { useWorkCategory } from '../../../common/api/useWorkCategory';
 import { getUploadUrl } from '../../../common/utils';
@@ -12,6 +12,7 @@ import { CategoryBanner } from '../../common';
 
 export const Works: FC = () => {
   const { localize } = useLocalization();
+  const { pathname } = useLocation();
   const { id } = useParams<{ id: string }>();
   const { data } = useWorkCategory({ id: Number(id) });
   const { data: subcategories } = useWorkSubcategories({ workCategory: Number(id) });
@@ -20,7 +21,7 @@ export const Works: FC = () => {
   //if (!isLoading || !data) return <LoaderScreen />;
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
 
   return (
     <div

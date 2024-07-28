@@ -1,7 +1,7 @@
 import { useLocalization } from './common/hooks';
 import { LoaderScreen, Navbar } from './components/common';
 import { Home } from './components/screens';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, useLocation } from 'react-router-dom';
 import { Works } from './components/screens/Works';
 import useDebounce from './common/hooks/useDebounce';
 import { useEffect } from 'react';

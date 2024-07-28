@@ -14,8 +14,8 @@ export const AboutMe: FC = () => {
   const { localize } = useLocalization();
 
   return (
-    <>
-      <Container className='pb-12' id='about_me'>
+    <div>
+      <Container className='py-12' id='about_me'>
         <Banner title={localize('about_me')} text={localize('about_me_subtitle')} />
       </Container>
       <Container className='bg-black px-0'>
@@ -100,6 +100,6 @@ export const AboutMe: FC = () => {
           />
         </div>
       </Container>
-    </>
+    </div>
   );
 };
